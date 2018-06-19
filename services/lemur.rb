@@ -1,0 +1,3 @@
+class Lemur<Animal
+
+end

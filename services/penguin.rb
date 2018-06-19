@@ -1,0 +1,3 @@
+class Penguin<Animal
+
+end
