@@ -16,12 +16,16 @@ class Animal
     "(kind: #{@kind})" if kind
   end
 
+  def adjusted_description
+    description[0].downcase+description[1..-1]
+  end
+
 
   def introduce
     if origin.nil?
-      [self.class.name, use_kind, name, hyphen, description[0].downcase+description[1..-1]].compact.join( ' ')
+      [self.class.name, use_kind, name, hyphen, adjusted_description].compact.join( ' ')
     else
-      [self.class.name, use_kind, name, hyphen, 'from ' + origin, description[0].downcase+description[1..-1]].compact.join( ' ')
+      [self.class.name, use_kind, name, hyphen, 'from ' + origin, adjusted_description].compact.join( ' ')
     end
 
   end
