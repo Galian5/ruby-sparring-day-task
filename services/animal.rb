@@ -8,13 +8,20 @@ class Animal
     @kind = params[:kind]
   end
 
+  def hyphen
+    '-' if kind
+  end
+
+  def use_kind
+    "(kind: #{@kind})" if kind
+  end
 
 
   def introduce
-    if origin.nil? then
-      [self.class.name, name, description[0].downcase+description[1..-1]].compact.join( ' ')
+    if origin.nil?
+      [self.class.name, use_kind, name, hyphen, description[0].downcase+description[1..-1]].compact.join( ' ')
     else
-      [self.class.name, name, 'from ' + origin, description[0].downcase+description[1..-1]].compact.join( ' ')
+      [self.class.name, use_kind, name, hyphen, 'from ' + origin, description[0].downcase+description[1..-1]].compact.join( ' ')
     end
 
   end
